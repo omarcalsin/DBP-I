@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mercado Sumaq: catálogo en línea de la Cooperativa Agraria Sumaq Quinua (caso didáctico ficticio).">
+  <title>Mercado Sumaq · Cooperativa Agraria Sumaq Quinua</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera__interior">
+      <p class="marca">Mercado Sumaq</p>
+      <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+      <nav id="menu" class="menu" aria-label="Principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#pedido">Pedido</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="portada">
+      <div class="contenedor">
+        <h1>Quinua y cañihua del altiplano, directo de la cooperativa</h1>
+        <p>Productos de los socios de la Cooperativa Agraria Sumaq Quinua. Envíos a Puno, Arequipa y Lima.</p>
+        <a class="boton" href="#catalogo">Ver catálogo</a>
+      </div>
+    </section>
+
+    <section id="catalogo" class="contenedor seccion">
+      <h2>Catálogo</h2>
+      <div class="filtros">
+        <div>
+          <label for="buscar">Buscar producto</label>
+          <input id="buscar" type="search" autocomplete="off" placeholder="Ej.: quinua">
+        </div>
+        <div>
+          <label for="categoria">Categoría</label>
+          <select id="categoria">
+            <option value="">Todas</option>
+          </select>
+        </div>
+      </div>
+      <p id="contador" aria-live="polite"></p>
+      <ul id="lista" class="rejilla"></ul>
+    </section>
+
+    <section id="pedido" class="contenedor seccion">
+      <h2>Su pedido</h2>
+      <div class="pedido-caja">
+        <div>
+          <h3>Resumen</h3>
+          <ul id="resumen" class="resumen" aria-live="polite"></ul>
+          <p id="total" class="total">Total: S/ 0.00</p>
+          <button id="vaciar" class="boton boton--claro" type="button">Vaciar pedido</button>
+        </div>
+
+        <form id="form-pedido" novalidate>
+          <fieldset>
+            <legend>Datos del cliente</legend>
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" required minlength="3" autocomplete="name" aria-describedby="error-nombre">
+            <p id="error-nombre" class="error"></p>
+
+            <label for="celular">Celular</label>
+            <input id="celular" name="celular" type="tel" required pattern="9[0-9]{8}" autocomplete="tel" aria-describedby="ayuda-celular error-celular">
+            <p id="ayuda-celular" class="ayuda">9 dígitos, empieza en 9. Ejemplo: 951234567</p>
+            <p id="error-celular" class="error"></p>
+
+            <label for="correo">Correo electrónico (opcional)</label>
+            <input id="correo" name="correo" type="email" autocomplete="email" aria-describedby="error-correo">
+            <p id="error-correo" class="error"></p>
+
+            <label for="ciudad">Ciudad de entrega</label>
+            <select id="ciudad" name="ciudad" required aria-describedby="error-ciudad">
+              <option value="">Elija una ciudad</option>
+              <option>Puno</option>
+              <option>Arequipa</option>
+              <option>Lima</option>
+            </select>
+            <p id="error-ciudad" class="error"></p>
+          </fieldset>
+          <button class="boton" type="submit">Enviar pedido</button>
+          <p id="mensaje-pedido" class="mensaje" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contacto" class="contenedor seccion">
+      <h2>Contacto</h2>
+      <p>Cooperativa Agraria Sumaq Quinua · Altiplano de Puno.</p>
+      <form id="boletin" novalidate class="boletin">
+        <label for="correo-boletin">Reciba nuestras ofertas</label>
+        <div class="boletin__fila">
+          <input id="correo-boletin" type="email" required aria-describedby="error-boletin">
+          <button class="boton" type="submit">Suscribirme</button>
+        </div>
+        <p id="error-boletin" class="error" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>Mercado Sumaq es un caso didáctico ficticio del curso Desarrollo Basado en Plataformas I (SIS302) · UNA-Puno · 2026-II.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
